@@ -1,6 +1,6 @@
 
 
-Storage XSS
+Stored Cross-Site Scripting
 
 ![image-20231014164109765](https://alious-1314078558.cos.ap-beijing.myqcloud.com/image-20231014164109765.png)
 
