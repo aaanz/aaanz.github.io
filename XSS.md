@@ -1,11 +1,19 @@
 Vulnerability type : Cross Site Scripting
+
 Vendor of the product(s) : https://github.com/WBCE/WBCE_CMS
+
 Affected Product Code Base : WBCE_CMS - <=1.6.1
+
 Affected Component : /admin/settings, /templates/wbcezon/index.php
+
 Attack Type : Remote
+
 Impact Escalation of Privileges : true
+
 Impact Information Disclosure : true
+
 Attack Vectors : Users can insert JavaScript statements by controlling website_footer
+
 
 Stored Cross-Site Scripting
 
